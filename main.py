@@ -1,18 +1,38 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify
+import os
+
+app = Flask(__name__)
 
 
 @app.route('/')
-def hello():
-    return 'Hello, world !!'
+def index():
+    return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
 
 
-@app.route('/test')
-def test():
-    return 'Test'
+if __name__ == '__main__':
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
 
-@app.route('/result')
-def result():
-   dict = {'phy':50,'che':60,'maths':70}
-   return render_template('result.html', result = dict)
+
+
+
+
+
+    
+# from flask import Flask, render_template
+
+
+# @app.route('/')
+# def hello():
+#     return 'Hello, world !!'
+
+
+# @app.route('/test')
+# def test():
+#     return 'Test'
+
+# @app.route('/result')
+# def result():
+#    dict = {'phy':50,'che':60,'maths':70}
+#    return render_template('result.html', result = dict)
    
-app.run(debug=True, port=33507)
+# app.run(debug=True, port=33507)
