@@ -13,6 +13,10 @@ def index():
 def test():
     return 'Test'
 
+@app.route('/env')
+def env():
+    return 'env'+ os.environ.get('data1')
+
 @app.route('/result')
 def result():
    dict = {'phy':50,'che':60,'maths':70}
